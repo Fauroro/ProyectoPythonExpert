@@ -27,7 +27,18 @@
             }
         },
         "rutas": {},
-        "pruebas": {},
+        "pruebas": {
+            "111": {
+                "1": {
+                    "nota": 70.0,
+                    "estado": "Aprobado"
+                },
+                "2": {
+                    "nota": 50.0,
+                    "estado": "Riesgo"
+                }
+            }
+        },
         "salones": {}
     }
 }
