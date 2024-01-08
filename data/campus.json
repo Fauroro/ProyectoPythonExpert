@@ -1,0 +1,33 @@
+{
+    "campus": {
+        "campers": {
+            "111": {
+                "NroId": "111",
+                "Nombre": "aaa",
+                "Apellido": "bbb",
+                "Direccion": "cra a",
+                "Acudiente": {
+                    "001": {
+                        "id": "11",
+                        "nrotel": "33",
+                        "nombre": "aa"
+                    }
+                },
+                "Telecontacto": {
+                    "001": {
+                        "id": "1",
+                        "nrotel": "333"
+                    },
+                    "002": {
+                        "id": "1",
+                        "nrotel": "666"
+                    }
+                },
+                "Estado": "Inscrito"
+            }
+        },
+        "rutas": {},
+        "pruebas": {},
+        "salones": {}
+    }
+}
