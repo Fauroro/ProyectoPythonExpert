@@ -14,9 +14,9 @@ def newCamper(campers : dict):
     campus["campus"]["campers"].update(campers)
     cf.AddData(campus)
 
-# def searchCustomer()->dict:
-#     id=input('Ingrese el Nro Id a Editar :')
-#     return campus.get(id,{})
+def searchCamper(id)->dict:
+    # id=input('Ingrese el Nro Id del Camper:')
+    return campus.get("campus").get("campers").get(id,{})
 
 # def delCustomer():
 #     id=input('Ingrese el Nro Id a Borrar :')
