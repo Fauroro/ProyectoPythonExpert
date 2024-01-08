@@ -23,36 +23,19 @@
                         "nrotel": "666"
                     }
                 },
-                "Estado": "Aprobado"
+                "Estado": "Bajo Rendimiento"
             }
         },
         "rutas": {},
         "pruebas": {
             "111": {
                 "1": {
-                    "nota": 70.0,
-                    "estado": "Aprobado"
-                },
-                "2": {
                     "nota": 50.0,
                     "estado": "Riesgo"
                 }
             }
         },
         "salones": {},
-        "trainer": {
-            "111": {
-                "id": "111",
-                "nombre": "aaa",
-                "nroCel": "333",
-                "ruta": {}
-            },
-            "222": {
-                "id": "222",
-                "nombre": "bbb",
-                "nroCel": "222",
-                "ruta": {}
-            }
-        }
+        "trainer": {}
     }
 }

@@ -26,8 +26,6 @@ if __name__=='__main__':
             elif opMenu==5:
                 pass
             elif opMenu==6:
-                r.camperRiesgo()
-            elif opMenu==7:
                 flag = True
                 os.system("cls")
                 while flag:
@@ -41,9 +39,9 @@ if __name__=='__main__':
                         elif opRep==2:
                             r.aprobInic()
                         elif opRep==3:
-                            pass
+                            r.listTrainer()
                         elif opRep==4:
-                            pass
+                            r.camperRiesgo()
                         elif opRep==5:
                             pass
                         elif opRep==6:
@@ -53,7 +51,7 @@ if __name__=='__main__':
                         else:
                             print("Opcion seleccionada inexistente.") 
                             os.system("pause")                  
-            elif opMenu==8:
+            elif opMenu==7:
                 isActive = False
             else:
                 print("Opcion seleccionada inexistente.") 

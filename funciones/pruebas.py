@@ -18,6 +18,7 @@ def validNota(valor,txt,tipo):
 
 
 def regPrueba():
+    os.system("cls")
     header="""
     ++++++++++++++++++++++++++
     +   REGISTRAR PRUEBAS    +
@@ -25,7 +26,6 @@ def regPrueba():
     """    
     print(header)
     mc.cf.checkFile(mc.campus)
-    os.system("cls")
     valor = 0
     isActive = True
     while isActive:
@@ -50,6 +50,8 @@ def regPrueba():
                 nota = notaPrac*0.6+notaTeo*0.3+notaTaller*0.1
                 if nota<60:
                     estado = "Riesgo"
+                    Estado = "Bajo Rendimiento"
+                    data.update({"Estado":Estado})
                 else:
                     estado = "Aprobado"
                 try: 

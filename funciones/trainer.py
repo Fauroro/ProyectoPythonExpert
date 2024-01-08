@@ -24,6 +24,7 @@ def validar(valor,txt,tipo):
 
 def regTrainer():
     mc.cf.checkFile(mc.campus)
+    os.system("cls")
     trainer = {}
     valor = ""
     isActive = True
