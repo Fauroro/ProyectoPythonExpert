@@ -3,7 +3,11 @@ import os
 campus={
     "campus":{
         "campers":{},
-        "rutas":{},
+        "rutas":{
+            "001":"NodeJs",
+            "002":"Java",
+            "003":"Netcore"
+        },
         "pruebas":{},
         "salones":{},
         "trainer":{}

@@ -26,7 +26,11 @@
                 "Estado": "Bajo Rendimiento"
             }
         },
-        "rutas": {},
+        "rutas": {
+            "001": "NodeJs",
+            "002": "Java",
+            "003": "Netcore"
+        },
         "pruebas": {
             "111": {
                 "1": {
@@ -36,6 +40,16 @@
             }
         },
         "salones": {},
-        "trainer": {}
+        "trainer": {
+            "111": {
+                "id": "111",
+                "nombre": "aaa",
+                "nroCel": "222",
+                "ruta": {
+                    "ma\u00f1ana": "001",
+                    "tarde": ""
+                }
+            }
+        }
     }
 }

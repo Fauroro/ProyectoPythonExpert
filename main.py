@@ -5,6 +5,7 @@ import funciones.camper as c
 import funciones.pruebas as p
 import funciones.reportes as r
 import funciones.trainer as t
+import funciones.rutas as ru
 
 if __name__=='__main__':
     isActive = True
@@ -24,7 +25,7 @@ if __name__=='__main__':
             elif opMenu==4:
                 pass
             elif opMenu==5:
-                pass
+                ru.rutas()
             elif opMenu==6:
                 flag = True
                 os.system("cls")

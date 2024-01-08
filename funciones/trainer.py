@@ -43,7 +43,10 @@ def regTrainer():
                     "id":id,
                     "nombre":nombre,
                     "nroCel":nroCel,
-                    "ruta":{}
+                    "ruta":{
+                        "mañana":"",
+                        "tarde":""
+                    }
                 }
                 try:
                     mc.campus["campus"]["trainer"].update({id:trainer})                
@@ -51,13 +54,41 @@ def regTrainer():
                     mc.campus["campus"].update({"trainer":{id:trainer}})
                 else:
                     mc.campus["campus"]["trainer"].update({id:trainer})
+                mc.cf.NewFile(mc.campus)
+                os.system("cls")
             elif opcion == 2:
-                print("Ingrese el ID del Trainer: ")
-                id = validar(valor,"ID del Trainer",str)
+                os.system("cls")
+                isActiveTrainer = True
+                if len(mc.campus["campus"]["trainer"])==0:
+                    print("No se cuenta con Trainers Inscritos")
+                    os.system("pause")
+                    os.system("cls")
+                    isActiveTrainer = False
+                while isActiveTrainer:
+                    id = validar(valor,"ID del Trainer",str)
+                    try:
+                        data = mc.campus["campus"]["trainer"][id]
+                    except KeyError:
+                        print("El Trainer no se encuentra registrado")
+                    else: 
+                        dataR = data.get("ruta")
+                        print("Rutas Existentes")
+                        rutas = mc.campus["campus"]["rutas"]
+                        for i,items in rutas.items():
+                            print(f"{i} - {items}")
+                        for i,item in dataR.items():
+                            print(f"Ruta inscrita en el horario de {i}: {item}")
+                            if (bool(input(f"Desea editar la ruta de la {i} del Trainer {data['nombre']} Enter(Si)")) == False):
+                                dataR[i] = input(f"Ingrese el codigo de la ruta para el Horario de {i}: ")
+                            data["ruta"].update(dataR)
+                        isActiveTrainer = False
+                mc.campus["campus"]["trainer"][id].update(data)
+                mc.cf.NewFile(mc.campus)
+                os.system("cls") 
 
-                # nombre = validar(valor,"nombre completo del Trainer",str)
+
                 
-                pass
+                
             elif opcion == 3:
                 pass
             elif opcion == 4:
