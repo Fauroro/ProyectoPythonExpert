@@ -39,6 +39,26 @@
                 }
             }
         },
-        "salones": {}
+        "salones": {},
+        "trainer": {
+            "111": {
+                "id": "111",
+                "nombre": "aaa",
+                "nroCel": "333",
+                "ruta": {
+                    "idRuta": "",
+                    "horario": ""
+                }
+            },
+            "222": {
+                "id": "222",
+                "nombre": "bbb",
+                "nroCel": "222",
+                "ruta": {
+                    "idRuta": "",
+                    "horario": ""
+                }
+            }
+        }
     }
 }

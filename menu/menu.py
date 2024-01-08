@@ -1,5 +1,5 @@
 import os
-menu = ['Registrar Camper','Registrar Pruebas','Registrar area de entrenamiento','Crear Ruta de entrenamiento','Gestor de matricula','Consulta estudiante en riesgo','Reportes','Salir']
+menu = ['Registrar Camper','Registrar Pruebas','Gestor de Trainer','Crear Ruta de entrenamiento','Gestor de matricula','Consulta estudiante en riesgo','Reportes','Salir']
 menuReporte = ['Campers Inscritos','Campers examen inicial aprobado','Trainers','Estudiantes con bajo rendimiento','Inscritos a ruta de entrenamiento','Desempeño Modulos por Ruta','Salir']
 
 def menuPapl():

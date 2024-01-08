@@ -18,6 +18,12 @@ def validNota(valor,txt,tipo):
 
 
 def regPrueba():
+    header="""
+    ++++++++++++++++++++++++++
+    +   REGISTRAR PRUEBAS    +
+    ++++++++++++++++++++++++++
+    """    
+    print(header)
     mc.cf.checkFile(mc.campus)
     os.system("cls")
     valor = 0

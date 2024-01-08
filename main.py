@@ -4,6 +4,7 @@ import menu.menu as menu
 import funciones.camper as c
 import funciones.pruebas as p
 import funciones.reportes as r
+import funciones.trainer as t
 
 if __name__=='__main__':
     isActive = True
@@ -19,7 +20,7 @@ if __name__=='__main__':
             elif opMenu==2:
                 p.regPrueba()
             elif opMenu==3:
-                pass
+                t.regTrainer()
             elif opMenu==4:
                 pass
             elif opMenu==5:

@@ -5,7 +5,8 @@ campus={
         "campers":{},
         "rutas":{},
         "pruebas":{},
-        "salones":{}
+        "salones":{},
+        "trainer":{}
     }
 }
 
@@ -15,7 +16,7 @@ def newCamper(campers : dict):
     cf.AddData(campus)
 
 def searchCamper(id)->dict:
-    # id=input('Ingrese el Nro Id del Camper:')
+    
     return campus.get("campus").get("campers").get(id,{})
 
 # def delCustomer():
