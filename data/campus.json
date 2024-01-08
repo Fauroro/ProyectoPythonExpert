@@ -23,7 +23,7 @@
                         "nrotel": "666"
                     }
                 },
-                "Estado": "Reprobado"
+                "Estado": "Aprobado"
             }
         },
         "rutas": {},
@@ -45,19 +45,13 @@
                 "id": "111",
                 "nombre": "aaa",
                 "nroCel": "333",
-                "ruta": {
-                    "idRuta": "",
-                    "horario": ""
-                }
+                "ruta": {}
             },
             "222": {
                 "id": "222",
                 "nombre": "bbb",
                 "nroCel": "222",
-                "ruta": {
-                    "idRuta": "",
-                    "horario": ""
-                }
+                "ruta": {}
             }
         }
     }

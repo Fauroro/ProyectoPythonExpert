@@ -29,7 +29,7 @@ def regCamper():
     mc.cf.checkFile(mc.campus)
     os.system("cls")
     valor = ""
-    print(""")
+    print("""
     DATOS DEL CAMPER
     """)
     id = validar(valor,"ID",str)
@@ -78,4 +78,50 @@ def regCamper():
     campers.update({id : camper})
     mc.newCamper(campers)
 
+def modCamper():
+    mc.cf.checkFile(mc.campus)
+    trainer = {}
+    valor = ""
+    isActive = True
+    header="""
+    ++++++++++++++++++++++++++++++
+    +    GESTOR DE MATRICULAS    +
+    ++++++++++++++++++++++++++++++
+    """    
+    print(header)
+    while isActive:
+        print("1. Matricular Camper \n2. \n4. Salir")
+        try:
+            opcion = validar(valor,"opcion seleccionada",int)
+        except ValueError:
+            print("Error en el dato de ingreso")
+        else:
+            if opcion == 1:
+                id = validar(valor,"ID del Trainer",str)
+                nombre = validar(valor,"nombre completo del Trainer",str)
+                nroCel = validar(valor,"teléfono celular del Trainer", str)
+                trainer={
+                    "id":id,
+                    "nombre":nombre,
+                    "nroCel":nroCel,
+                    "ruta":{}
+                }
+                try:
+                    mc.campus["campus"]["trainer"].update({id:trainer})                
+                except KeyError:
+                    mc.campus["campus"].update({"trainer":{id:trainer}})
+                else:
+                    mc.campus["campus"]["trainer"].update({id:trainer})
+            elif opcion == 2:
+                print("Ingrese el ID del Trainer: ")
+                id = validar(valor,"ID del Trainer",str)
 
+                # nombre = validar(valor,"nombre completo del Trainer",str)
+                
+                pass
+            elif opcion == 3:
+                pass
+            elif opcion == 4:
+                isActive = False
+
+    mc.cf.NewFile(mc.campus)

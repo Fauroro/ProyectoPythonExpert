@@ -42,10 +42,7 @@ def regTrainer():
                     "id":id,
                     "nombre":nombre,
                     "nroCel":nroCel,
-                    "ruta":{
-                        "idRuta":"",
-                        "horario":""
-                    }
+                    "ruta":{}
                 }
                 try:
                     mc.campus["campus"]["trainer"].update({id:trainer})                
@@ -53,8 +50,12 @@ def regTrainer():
                     mc.campus["campus"].update({"trainer":{id:trainer}})
                 else:
                     mc.campus["campus"]["trainer"].update({id:trainer})
-
             elif opcion == 2:
+                print("Ingrese el ID del Trainer: ")
+                id = validar(valor,"ID del Trainer",str)
+
+                # nombre = validar(valor,"nombre completo del Trainer",str)
+                
                 pass
             elif opcion == 3:
                 pass

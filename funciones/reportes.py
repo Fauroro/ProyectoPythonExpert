@@ -1,6 +1,23 @@
 import os
 import funciones.maincamper as mc
 
+def inscritos():
+    os.system("cls")
+    mc.cf.checkFile(mc.campus)
+    data = mc.campus["campus"]["campers"]
+    cont = 0
+    print("Estudiantes en estado Inscrito: \n")
+    print("ID\t\tNombre\t\tApellido\t\tEstado\n")
+    for i,items in data.items():
+        if data[i]["Estado"]=="Inscrito":
+            print(f"{i}\t\t{data[i]['Nombre']}\t\t{data[i]['Apellido']}\t\t{data[i]['Estado']}")
+            cont +=1
+    if cont == 0:
+        os.system("cls")
+        print("No se encuentran Campers en estado Inscrito")
+    print("")
+    os.system("pause")    
+    os.system("cls")
 
 def camperRiesgo():
     os.system("cls")
@@ -28,11 +45,12 @@ def aprobInic():
     os.system("cls")
     mc.cf.checkFile(mc.campus)
     data = mc.campus["campus"]["campers"]
-    print("ID\t\tNombre\t\tApellido\n")
+    print("Estudiantes que aprobaron el examen inicial: \n")
+    print("ID\t\tNombre\t\tApellido\t\tEstado\n")
     cont = 0
     for i,items in data.items():
-        if data.get("Estado")=="Aprobado":
-            (f"{i}\t\t{data.get('Nombre')}\t\t{data.get('Apellido')}")
+        if data[i]["Estado"]=="Aprobado":
+            print(f"{i}\t\t{data[i]['Nombre']}\t\t{data[i]['Apellido']}\t\t{data[i]['Estado']}")
             cont +=1
     if cont == 0:
         os.system("cls")
