@@ -44,7 +44,7 @@ def regTrainer():
                     "nombre":nombre,
                     "nroCel":nroCel,
                     "ruta":{
-                        "mañana":"",
+                        "manana":"",
                         "tarde":""
                     }
                 }
@@ -71,20 +71,39 @@ def regTrainer():
                     except KeyError:
                         print("El Trainer no se encuentra registrado")
                     else: 
-                        dataR = data.get("ruta")
-                        print("Rutas Existentes")
-                        rutas = mc.campus["campus"]["rutas"]
-                        for i,items in rutas.items():
-                            print(f"{i} - {items}")
-                        for i,item in dataR.items():
-                            print(f"Ruta inscrita en el horario de {i}: {item}")
-                            if (bool(input(f"Desea editar la ruta de la {i} del Trainer {data['nombre']} Enter(Si)")) == False):
-                                dataR[i] = input(f"Ingrese el codigo de la ruta para el Horario de {i}: ")
-                            data["ruta"].update(dataR)
-                        isActiveTrainer = False
-                mc.campus["campus"]["trainer"][id].update(data)
-                mc.cf.NewFile(mc.campus)
-                os.system("cls") 
+                        isTrue = True
+                        if len(data["ruta"]["manana"])!=0 and len(data["ruta"]["tarde"])!=0:
+                            print("El Trainer ya cuenta con rutas asignadas en las 2 jornadas")
+                            isTrue = False
+                        while isTrue:
+                            if len(data["ruta"]["manana"])!=0:
+                                print("El Trainer cuenta con una ruta asignada en la jornada de la mañana, asigne la ruta para la jornada de la tarde")
+                                jor="tarde"
+                                regRuta(jor,id)
+                                isTrue = False
+                            elif len(data["ruta"]["tarde"])!=0:
+                                print("El Trainer cuenta con una ruta asignada en la jornada de la tarde, asigne la ruta para la jornada de la mañana")
+                                jor="manana"
+                                regRuta(jor,id)
+                                isTrue = False
+                            else:
+                                try:
+                                    jornada = validar(valor,"Ingrese el numero de la jornada (1 - mañana, 2 - tarde): ",str)
+                                except ValueError:
+                                    print("Error en el dato de ingreso, intente nuevamente")
+                                else:                                
+                                    if jornada == "1":
+                                        jor="manana"
+                                        regRuta(jor,id)
+                                        isTrue = False
+                                    elif jornada==2:
+                                        jor="tarde"
+                                        regRuta(jor,id)                                    
+                                        isTrue = False
+                                    else:
+                                        print("Opcion seleccionada inexistente.") 
+                                        os.system("pause")        
+
 
 
                 
@@ -95,3 +114,28 @@ def regTrainer():
                 isActive = False
 
     mc.cf.NewFile(mc.campus)
+
+def regRuta(jor:str,id):
+    temp = {}
+    valor = 0
+    dataR = mc.campus["campus"]["rutas"][jor]
+    print("Rutas Existentes")
+    cont = 1
+    for i,item in dataR.items():
+        print(f"{cont} - {i}")
+        temp.update({str(cont):i})
+        cont+=1
+    isTrueRu = True
+    while isTrueRu:
+        try:
+            ruta = validar(valor,"la ruta",str)
+        except ValueError:
+            print("Error en el dato de ingreso, intente nuevamente")
+        else:
+            tempRU = temp.get(ruta)
+            dataR[tempRU].update({"trainer":id})
+            isTrueRu = False
+    mc.campus["campus"]["rutas"][jor].update(dataR)
+    mc.campus["campus"]["trainer"][id]["ruta"].update({jor:tempRU})
+    mc.cf.NewFile(mc.campus)
+    os.system("cls") 

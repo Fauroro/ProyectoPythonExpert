@@ -5,4 +5,4 @@ def rutas():
     os.system("cls")
     mc.cf.checkFile(mc.campus)
 
-
+#falta crear nuevas rutas

@@ -4,9 +4,34 @@ campus={
     "campus":{
         "campers":{},
         "rutas":{
-            "001":"NodeJs",
-            "002":"Java",
-            "003":"Netcore"
+            "manana":{
+                "NodeJs":{
+                    "trainer":"",
+                    "campers":{}
+                },
+                "Java":{
+                    "trainer":"",
+                    "campers":{}
+                },
+                "NetCore":{
+                    "trainer":"",
+                    "campers":{}
+                }
+            },
+            "tarde":{
+                "NodeJs":{
+                    "trainer":"",
+                    "campers":{}
+                },
+                "Java":{
+                    "trainer":"",
+                    "campers":{}
+                },
+                "NetCore":{
+                    "trainer":"",
+                    "campers":{}
+                }
+            }
         },
         "pruebas":{},
         "salones":{},

@@ -27,9 +27,34 @@
             }
         },
         "rutas": {
-            "001": "NodeJs",
-            "002": "Java",
-            "003": "Netcore"
+            "manana": {
+                "NodeJs": {
+                    "trainer": "111",
+                    "campers": {}
+                },
+                "Java": {
+                    "trainer": "",
+                    "campers": {}
+                },
+                "NetCore": {
+                    "trainer": "",
+                    "campers": {}
+                }
+            },
+            "tarde": {
+                "NodeJs": {
+                    "trainer": "",
+                    "campers": {}
+                },
+                "Java": {
+                    "trainer": "",
+                    "campers": {}
+                },
+                "NetCore": {
+                    "trainer": "",
+                    "campers": {}
+                }
+            }
         },
         "pruebas": {
             "111": {
@@ -46,7 +71,7 @@
                 "nombre": "aaa",
                 "nroCel": "222",
                 "ruta": {
-                    "ma\u00f1ana": "001",
+                    "manana": "NodeJs",
                     "tarde": ""
                 }
             }
