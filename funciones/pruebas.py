@@ -33,6 +33,7 @@ def regPrueba():
         data = mc.searchCamper(id)
         if len(data):
             if data["Estado"]=="Inscrito":
+                print("Por favor ingrese resultados de las pruebas de ingreso: \n")
                 notaTeo = validNota(valor,"Nota prueba teorica (entre 0 - 100)",float)
                 notaPrac = validNota(valor,"Nota prueba Practica (entre 0 - 100)",float)
                 nota = (notaPrac+notaTeo)/2
@@ -44,6 +45,7 @@ def regPrueba():
                 mc.campus["campus"]["campers"][id].update(data)
             elif data["Estado"]!="Reprobado":
                 idModulo = 0
+                print("Por favor ingrese resultados de las pruebas del modulo : \n")
                 notaTeo = validNota(valor,"Nota prueba teorica (entre 0 - 100)",float)
                 notaPrac = validNota(valor,"Nota prueba Practica (entre 0 - 100)",float)
                 notaTaller = validNota(valor,"Nota quices y trabajos (entre 0 - 100)",float)
@@ -54,7 +56,7 @@ def regPrueba():
                     data.update({"Estado":Estado})
                 else:
                     estado = "Aprobado"
-                    Estado = "Bajo Rendimiento"
+                    Estado = "Buen Rendimiento"
                     data.update({"Estado":Estado})
                 try: 
                     len(mc.campus["campus"]["pruebas"][id])

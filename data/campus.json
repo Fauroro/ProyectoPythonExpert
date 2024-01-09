@@ -23,7 +23,7 @@
                         "nrotel": "666"
                     }
                 },
-                "Estado": "Bajo Rendimiento"
+                "Estado": "Buen Rendimiento"
             },
             "222": {
                 "NroId": "222",
@@ -47,7 +47,7 @@
                         "nrotel": "777"
                     }
                 },
-                "Estado": "Inscrito"
+                "Estado": "Buen Rendimiento"
             }
         },
         "rutas": {
@@ -100,8 +100,22 @@
         "pruebas": {
             "111": {
                 "1": {
-                    "nota": 50.0,
+                    "nota": 60.0,
+                    "estado": "Aprobado"
+                },
+                "2": {
+                    "nota": 75.0,
+                    "estado": "Aprobado"
+                }
+            },
+            "222": {
+                "1": {
+                    "nota": 40.0,
                     "estado": "Riesgo"
+                },
+                "2": {
+                    "nota": 60.0,
+                    "estado": "Aprobado"
                 }
             }
         },

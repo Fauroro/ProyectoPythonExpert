@@ -23,7 +23,7 @@ if __name__=='__main__':
             elif opMenu==3:
                 t.regTrainer()
             elif opMenu==4:
-                ru.rutas()
+                ru.rutas() # falta terminarlo
             elif opMenu==5:
                 c.modCamper()
             elif opMenu==6:
@@ -46,7 +46,7 @@ if __name__=='__main__':
                         elif opRep==5:
                             r.listaRuta()
                         elif opRep==6:
-                            pass
+                            r.desempRuta()
                         elif opRep==7:
                             flag = False
                         else:
