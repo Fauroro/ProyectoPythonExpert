@@ -1,5 +1,6 @@
 import os
 import funciones.maincamper as mc
+import funciones.trainer as t
 
 def inscritos():
     os.system("cls")
@@ -71,4 +72,54 @@ def aprobInic():
         print("No se encuentran Campers con el examen incial aprobado")
     print("")
     os.system("pause")
+
+def listaRuta():
+    mc.cf.checkFile(mc.campus)
+    os.system("cls")
+    temp = {}
+    valor = 0
+    isTrue = True
+    while isTrue:
+        try:
+            jor = t.validar(valor,"el numero de la jornada (1 - mañana, 2 - tarde)",str)                    
+        except ValueError:
+            print("Error en el dato de ingreso, intente nuevamente")
+        else:                                
+            if jor == "1":
+                jor="manana"
+                isTrue = False
+            elif jor==2:
+                jor="tarde"                                   
+                isTrue = False
+            else:
+                print("Opcion seleccionada inexistente.")  
+        dataR = mc.campus["campus"]["rutas"][jor]
+        print("Rutas Existentes")
+        cont = 1
+        for i,item in dataR.items():
+            print(f"{cont} - {i}")
+            temp.update({str(cont):i})
+            cont+=1
+            isTrueRu = True
+        while isTrueRu:
+            try:
+                ruta = t.validar(valor,"la ruta",str)
+            except ValueError:
+                print("Error en el dato de ingreso, intente nuevamente")
+            else:
+                os.system("cls")
+                tempRU = temp.get(ruta)   
+                id = dataR[tempRU]['trainer']           
+                print(f"\t{tempRU.upper()} - {jor.upper()}\n")
+                print(f"TRAINER : {mc.campus['campus']['trainer'][id]['nombre'].upper()}\n")
+                print(f"Salon : {dataR[tempRU]['salon'].upper()}\n")
+                print("Nombre\t\tApellidos\n")
+                dataRU = dataR[tempRU]["campers"]
+                for i,item in dataRU.items():
+                    print(f"{dataRU[i]['nombre']}\t\t{dataRU[i]['apellido']}") 
+                os.system("pause")
+                isTrueRu = False
+
+
+
 

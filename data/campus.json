@@ -60,6 +60,11 @@
                             "NroId": "111",
                             "nombre": "aaa",
                             "apellido": "bbb"
+                        },
+                        "222": {
+                            "NroId": "222",
+                            "nombre": "bbb",
+                            "apellido": "ccc"
                         }
                     }
                 },

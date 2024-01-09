@@ -44,7 +44,7 @@ if __name__=='__main__':
                         elif opRep==4:
                             r.camperRiesgo()
                         elif opRep==5:
-                            pass
+                            r.listaRuta()
                         elif opRep==6:
                             pass
                         elif opRep==7:
@@ -56,4 +56,5 @@ if __name__=='__main__':
                 isActive = False
             else:
                 print("Opcion seleccionada inexistente.") 
-                os.system("pause")                  
+                os.system("pause")     
+                os.system("cls")             

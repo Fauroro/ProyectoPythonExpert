@@ -54,6 +54,8 @@ def regPrueba():
                     data.update({"Estado":Estado})
                 else:
                     estado = "Aprobado"
+                    Estado = "Bajo Rendimiento"
+                    data.update({"Estado":Estado})
                 try: 
                     len(mc.campus["campus"]["pruebas"][id])
                 except KeyError:
