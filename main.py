@@ -23,9 +23,9 @@ if __name__=='__main__':
             elif opMenu==3:
                 t.regTrainer()
             elif opMenu==4:
-                pass
-            elif opMenu==5:
                 ru.rutas()
+            elif opMenu==5:
+                c.modCamper()
             elif opMenu==6:
                 flag = True
                 os.system("cls")

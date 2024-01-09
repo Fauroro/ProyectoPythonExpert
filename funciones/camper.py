@@ -1,5 +1,4 @@
 import os
-import json
 import funciones.maincamper as mc
 
 campers ={}
@@ -80,7 +79,7 @@ def regCamper():
 
 def modCamper():
     mc.cf.checkFile(mc.campus)
-    trainer = {}
+    os.system("cls")
     valor = ""
     isActive = True
     header="""
@@ -88,40 +87,68 @@ def modCamper():
     +    GESTOR DE MATRICULAS    +
     ++++++++++++++++++++++++++++++
     """    
-    print(header)
     while isActive:
-        print("1. Matricular Camper \n2. \n4. Salir")
+        print(header)
+        print("1. Matricular Camper\n2. Salir")
         try:
             opcion = validar(valor,"opcion seleccionada",int)
         except ValueError:
             print("Error en el dato de ingreso")
         else:
             if opcion == 1:
-                id = validar(valor,"ID del Trainer",str)
-                nombre = validar(valor,"nombre completo del Trainer",str)
-                nroCel = validar(valor,"teléfono celular del Trainer", str)
-                trainer={
-                    "id":id,
-                    "nombre":nombre,
-                    "nroCel":nroCel,
-                    "ruta":{}
-                }
-                try:
-                    mc.campus["campus"]["trainer"].update({id:trainer})                
-                except KeyError:
-                    mc.campus["campus"].update({"trainer":{id:trainer}})
-                else:
-                    mc.campus["campus"]["trainer"].update({id:trainer})
-            elif opcion == 2:
-                print("Ingrese el ID del Trainer: ")
-                id = validar(valor,"ID del Trainer",str)
+                temp = {}
+                id = validar(valor,"ID",str)
+                isTrue = True
+                while isTrue:
+                    try:
+                        jor = validar(valor,"el numero de la jornada (1 - mañana, 2 - tarde)",str)                    
+                    except ValueError:
+                        print("Error en el dato de ingreso, intente nuevamente")
+                    else:                                
+                        if jor == "1":
+                            jor="manana"
+                            isTrue = False
+                        elif jor==2:
+                            jor="tarde"                                   
+                            isTrue = False
+                        else:
+                            print("Opcion seleccionada inexistente.")                    
+                dataR = mc.campus["campus"]["rutas"][jor]
+                print("Rutas Existentes")
+                cont = 1
+                for i,item in dataR.items():
+                    print(f"{cont} - {i}")
+                    temp.update({str(cont):i})
+                    cont+=1
+                    isTrueRu = True
+                while isTrueRu:
+                    try:
+                        ruta = validar(valor,"la ruta",str)
+                    except ValueError:
+                        print("Error en el dato de ingreso, intente nuevamente")
+                    else:
+                        tempRU = temp.get(ruta)
+                        if len(dataR[tempRU]["campers"])<33:
+                            tempID ={}
+                            dataID = mc.campus["campus"]["campers"][id]
+                            tempID.update({"NroId":dataID["NroId"]})
+                            tempID.update({"nombre":dataID["Nombre"]})
+                            tempID.update({"apellido":dataID["Apellido"]})
 
-                # nombre = validar(valor,"nombre completo del Trainer",str)
-                
-                pass
-            elif opcion == 3:
-                pass
-            elif opcion == 4:
+                            dataR[tempRU]["campers"].update({id:tempID})
+                            print(f"El salon asignado al camper es {dataR[tempRU]['salon']}")
+                            print(f"El Trainer asignado al camper es {dataR[tempRU]['trainer']}")
+                            isTrueRu = False
+                        else:
+                            print("La ruta esta llena, Intente matricular al camper en otra ruta")
+                            os.system("pause")
+
+            
+            elif opcion == 2:
                 isActive = False
+            else:
+                print("Error en el dato de ingreso.")
+                os.system("pause")
+            os.system("cls")
 
     mc.cf.NewFile(mc.campus)

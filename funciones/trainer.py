@@ -29,7 +29,7 @@ def regTrainer():
     valor = ""
     isActive = True
     while isActive:
-        print("1. Registrar Trainer\n2. Asignar Horario y ruta\n3. Asignar Ruta\n4. Salir")
+        print("1. Registrar Trainer\n2. Asignar Horario y Ruta y Salon\n3. Asignar Ruta\n4. Salir")
         try:
             opcion = validar(valor,"opcion seleccionada",int)
         except ValueError:
@@ -81,11 +81,13 @@ def regTrainer():
                                 jor="tarde"
                                 regRuta(jor,id)
                                 isTrue = False
+                                isActiveTrainer = False
                             elif len(data["ruta"]["tarde"])!=0:
                                 print("El Trainer cuenta con una ruta asignada en la jornada de la tarde, asigne la ruta para la jornada de la mañana")
                                 jor="manana"
                                 regRuta(jor,id)
                                 isTrue = False
+                                isActiveTrainer = False
                             else:
                                 try:
                                     jornada = validar(valor,"Ingrese el numero de la jornada (1 - mañana, 2 - tarde): ",str)
@@ -102,11 +104,9 @@ def regTrainer():
                                         isTrue = False
                                     else:
                                         print("Opcion seleccionada inexistente.") 
-                                        os.system("pause")        
+                                        os.system("pause")
+                                isActiveTrainer = False
 
-
-
-                
                 
             elif opcion == 3:
                 pass
@@ -117,6 +117,7 @@ def regTrainer():
 
 def regRuta(jor:str,id):
     temp = {}
+    tempS = {}
     valor = 0
     dataR = mc.campus["campus"]["rutas"][jor]
     print("Rutas Existentes")
@@ -135,7 +136,29 @@ def regRuta(jor:str,id):
             tempRU = temp.get(ruta)
             dataR[tempRU].update({"trainer":id})
             isTrueRu = False
+    dataS = mc.campus["campus"]["salones"]
+    print("Salones Existentes")
+    cont = 1
+    for i,item in dataS.items():
+        print(f"{cont} - {i}")
+        tempS.update({str(cont):i})
+        cont+=1
+    isTrueSa = True
+    while isTrueSa:
+        try:
+            salon = validar(valor,"el salon",str)
+        except ValueError:
+            print("Error en el dato de ingreso, intente nuevamente")
+        else:
+            tempSa = tempS.get(salon)
+            if len(dataS[tempSa][jor])!=0:
+                print("El salon ya se encuentra asignado en esa jornada, intente con otro.")
+            else:
+                dataS[tempSa].update({jor:tempRU})
+                dataR[tempRU].update({"salon":tempSa})
+                isTrueSa = False
     mc.campus["campus"]["rutas"][jor].update(dataR)
-    mc.campus["campus"]["trainer"][id]["ruta"].update({jor:tempRU})
+    mc.campus["campus"]["salones"].update(dataS)
+    mc.campus["campus"]["trainer"][id]["ruta"].update({jor:tempRU})    
     mc.cf.NewFile(mc.campus)
     os.system("cls") 

@@ -7,34 +7,53 @@ campus={
             "manana":{
                 "NodeJs":{
                     "trainer":"",
+                    "salon":"",
                     "campers":{}
                 },
                 "Java":{
                     "trainer":"",
+                    "salon":"",
                     "campers":{}
                 },
                 "NetCore":{
                     "trainer":"",
+                    "salon":"",
                     "campers":{}
                 }
             },
             "tarde":{
                 "NodeJs":{
                     "trainer":"",
+                    "salon":"",
                     "campers":{}
                 },
                 "Java":{
                     "trainer":"",
+                    "salon":"",
                     "campers":{}
                 },
                 "NetCore":{
                     "trainer":"",
+                    "salon":"",
                     "campers":{}
                 }
             }
         },
         "pruebas":{},
-        "salones":{},
+        "salones":{
+            "Artemis":{
+                "manana":"",
+                "tarde":""
+            },
+            "Apolo":{
+                "manana":"",
+                "tarde":""
+            },
+            "Sputnik":{
+                "manana":"",
+                "tarde":""
+            }
+        },
         "trainer":{}
     }
 }
@@ -47,6 +66,13 @@ def newCamper(campers : dict):
 def searchCamper(id)->dict:
     
     return campus.get("campus").get("campers").get(id,{})
+
+def validarArchivoClientes():
+    if(cf.checkFile()):
+        print('ok')
+        os.system('pause')
+    else:
+        cf.NewFile(campus)
 
 # def delCustomer():
 #     id=input('Ingrese el Nro Id a Borrar :')
@@ -68,10 +94,3 @@ def searchCamper(id)->dict:
 #                     validateAge = False
 #     campus[llave].update(cliente)
 #     cf.NewFile(campus)
-
-def validarArchivoClientes():
-    if(cf.checkFile()):
-        print('ok')
-        os.system('pause')
-    else:
-        cf.NewFile(campus)

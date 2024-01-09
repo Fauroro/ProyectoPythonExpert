@@ -24,34 +24,70 @@
                     }
                 },
                 "Estado": "Bajo Rendimiento"
+            },
+            "222": {
+                "NroId": "222",
+                "Nombre": "bbb",
+                "Apellido": "ccc",
+                "Direccion": "cra b",
+                "Acudiente": {
+                    "001": {
+                        "id": "22",
+                        "nrotel": "77",
+                        "nombre": "bb"
+                    }
+                },
+                "Telecontacto": {
+                    "001": {
+                        "id": "1",
+                        "nrotel": "999"
+                    },
+                    "002": {
+                        "id": "1",
+                        "nrotel": "777"
+                    }
+                },
+                "Estado": "Inscrito"
             }
         },
         "rutas": {
             "manana": {
                 "NodeJs": {
                     "trainer": "111",
-                    "campers": {}
+                    "salon": "Artemis",
+                    "campers": {
+                        "111": {
+                            "NroId": "111",
+                            "nombre": "aaa",
+                            "apellido": "bbb"
+                        }
+                    }
                 },
                 "Java": {
                     "trainer": "",
+                    "salon": "",
                     "campers": {}
                 },
                 "NetCore": {
                     "trainer": "",
+                    "salon": "",
                     "campers": {}
                 }
             },
             "tarde": {
                 "NodeJs": {
-                    "trainer": "",
+                    "trainer": "111",
+                    "salon": "Sputnik",
                     "campers": {}
                 },
                 "Java": {
                     "trainer": "",
+                    "salon": "",
                     "campers": {}
                 },
                 "NetCore": {
                     "trainer": "",
+                    "salon": "",
                     "campers": {}
                 }
             }
@@ -64,7 +100,20 @@
                 }
             }
         },
-        "salones": {},
+        "salones": {
+            "Artemis": {
+                "manana": "NodeJs",
+                "tarde": ""
+            },
+            "Apolo": {
+                "manana": "",
+                "tarde": ""
+            },
+            "Sputnik": {
+                "manana": "",
+                "tarde": "NodeJs"
+            }
+        },
         "trainer": {
             "111": {
                 "id": "111",
@@ -72,7 +121,7 @@
                 "nroCel": "222",
                 "ruta": {
                     "manana": "NodeJs",
-                    "tarde": ""
+                    "tarde": "NodeJs"
                 }
             }
         }
